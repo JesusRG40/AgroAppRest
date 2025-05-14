@@ -1,0 +1,44 @@
+{
+    "_id": "ObjectId()",
+    "nomCultivo": "String",
+    "fechaSiembra": "Date",
+    "fechaCosechaEst": "Date",
+    "fechaCosechaReal": "Date",
+    "areaCultivo": "number",
+    "tipoSuelo": "String",
+    "estadoActual": "String",
+    "idUsuario": "ref(Usuarios._id)",
+    "aplicacionesInsumo":[
+        {
+            "fechaAplicacion": "Date",
+            "cantAplicada": "number",
+            "metodoAplicacion": "String",
+            "estadoAplicacion": "String",
+            "idInsumo": "ref(Insumos._id)",
+            "idUsuario": "ref(Usuarios._id)"
+        }
+    ],
+    "riegos": [
+        {
+            "fechaRiego": "Date",
+            "cantAgua": "number",
+            "metodoRiego": "String",
+            "duracionRiego": "number",
+            "idUsuario": "ref(Usuarios._id)"
+        }
+    ],
+    "ubicacion": [
+        {
+        "nombreUbicacion": "String",
+        "coordenadas": {
+            "latitud": "number",
+            "longitud": "number"
+        },
+        "superficie": "number",
+        "clima": "String",
+        "tipoSuelo": "String",
+        "accesoAgua": "boolean"
+    }
+    ]
+}
+

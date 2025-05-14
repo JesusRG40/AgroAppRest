@@ -1,0 +1,13 @@
+[
+  {
+    $project: {
+      idUsuario: {
+        $toString: "$_id"
+      },
+      nombre: 1,
+      estatus: 1,
+      email: 1,
+      _id: 0
+    }
+  }
+]

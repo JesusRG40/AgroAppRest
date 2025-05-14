@@ -1,0 +1,734 @@
+[{
+  "_id": {
+    "$oid": "672ad3d95cf84d30d9b50244"
+  },
+  "fechaRevision": {
+    "$date": "2024-11-20T00:00:00.000Z"
+  },
+  "estadoCultivo": "Cosecha próxima",
+  "observaciones": [
+    "El cultivo está maduro y listo para cosecha.",
+    "Sin problemas visibles."
+  ],
+  "recomendaciones": [
+    "Preparar el equipo para la cosecha.",
+    "Revisar las condiciones climáticas."
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b5023a"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b50229"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-11-20T00:00:00.000Z"
+      },
+      "temperatura": "26°C",
+      "humedad": "50%",
+      "precipitacion": "0 mm",
+      "viento": "5 km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "672ad3d95cf84d30d9b50245"
+  },
+  "fechaRevision": {
+    "$date": "2024-11-25T00:00:00.000Z"
+  },
+  "estadoCultivo": "Cosecha realizada",
+  "observaciones": [
+    "La cosecha fue exitosa.",
+    "La calidad del producto es excelente."
+  ],
+  "recomendaciones": [],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b5023b"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b5022b"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-11-25T00:00:00.000Z"
+      },
+      "temperatura": "23°C",
+      "humedad": "48%",
+      "precipitacion": "0 mm",
+      "viento": "6 km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "672ad3d95cf84d30d9b50246"
+  },
+  "fechaRevision": {
+    "$date": "2024-11-30T00:00:00.000Z"
+  },
+  "estadoCultivo": "En reposo",
+  "observaciones": [
+    "Se ha terminado la cosecha.",
+    "Preparación para el próximo ciclo."
+  ],
+  "recomendaciones": [
+    "Aplicar compost y abono.",
+    "Realizar pruebas de suelo."
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b5022c"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-11-30T00:00:00.000Z"
+      },
+      "temperatura": "21°C",
+      "humedad": "65%",
+      "precipitacion": "1 mm",
+      "viento": "4 km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "672ad3d95cf84d30d9b50247"
+  },
+  "fechaRevision": {
+    "$date": "2024-12-05T00:00:00.000Z"
+  },
+  "estadoCultivo": "Crecimiento inicial",
+  "observaciones": [
+    "Las plantas han germinado bien.",
+    "No se han observado plagas."
+  ],
+  "recomendaciones": [
+    "Monitorear el riego regularmente.",
+    "Proteger contra heladas."
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50239"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b50229"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-12-05T00:00:00.000Z"
+      },
+      "temperatura": "19°C",
+      "humedad": "70%",
+      "precipitacion": "0 mm",
+      "viento": "3 km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "672ad3d95cf84d30d9b50248"
+  },
+  "fechaRevision": {
+    "$date": "2024-12-10T00:00:00.000Z"
+  },
+  "estadoCultivo": "Crecimiento moderado",
+  "observaciones": [
+    "El crecimiento es regular.",
+    "Se requiere fertilización."
+  ],
+  "recomendaciones": [
+    "Aplicar fertilizante líquido.",
+    "Ajustar el riego."
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50235"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b5022c"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-12-10T00:00:00.000Z"
+      },
+      "temperatura": "21°C",
+      "humedad": "65%",
+      "precipitacion": "0 mm",
+      "viento": "8 km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "672ad3d95cf84d30d9b50249"
+  },
+  "fechaRevision": {
+    "$date": "2024-12-15T00:00:00.000Z"
+  },
+  "estadoCultivo": "En desarrollo",
+  "observaciones": [
+    "Las plantas están alcanzando su altura máxima.",
+    "Se ha notado un crecimiento saludable."
+  ],
+  "recomendaciones": [
+    "Revisar el drenaje del suelo.",
+    "Controlar el uso de pesticidas."
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50235"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b5022d"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-12-15T00:00:00.000Z"
+      },
+      "temperatura": "22°C",
+      "humedad": "60%",
+      "precipitacion": "0 mm",
+      "viento": "5 km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "672ad3d95cf84d30d9b5024a"
+  },
+  "fechaRevision": {
+    "$date": "2024-12-20T00:00:00.000Z"
+  },
+  "estadoCultivo": "Cosecha inminente",
+  "observaciones": [
+    "Las frutas están madurando rápidamente.",
+    "Los colores son vibrantes."
+  ],
+  "recomendaciones": [
+    "Preparar el equipo de cosecha.",
+    "Monitorear las condiciones climáticas."
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50237"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b5022b"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-12-20T00:00:00.000Z"
+      },
+      "temperatura": "24°C",
+      "humedad": "55%",
+      "precipitacion": "0 mm",
+      "viento": "10 km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "672ad3d95cf84d30d9b5024b"
+  },
+  "fechaRevision": {
+    "$date": "2024-12-25T00:00:00.000Z"
+  },
+  "estadoCultivo": "Cosecha realizada",
+  "observaciones": [
+    "La cosecha se llevó a cabo exitosamente.",
+    "La calidad de los productos es alta."
+  ],
+  "recomendaciones": [
+    "Limpiar el área de cultivo.",
+    "Planificar la siembra del próximo ciclo."
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b5023b"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b5022d"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-12-25T00:00:00.000Z"
+      },
+      "temperatura": "23°C",
+      "humedad": "48%",
+      "precipitacion": "0 mm",
+      "viento": "6 km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "67d4c7cc73f9b32cc34b065e"
+  },
+  "fechaRevision": {
+    "$date": "2025-03-14T12:00:00.000Z"
+  },
+  "estadoCultivo": "En crecimiento",
+  "observaciones": [
+    "El cultivo se encuentra en buen estado.",
+    "Se detectaron algunas plagas menores."
+  ],
+  "recomendaciones": [
+    "Aplicar pesticida de forma preventiva.",
+    "Aumentar riego."
+  ],
+  "idCultivo": {
+    "$oid": "60d2bfae5b0d5d1234567890"
+  },
+  "idUsuario": {
+    "$oid": "60d2bfae5b0d5d0987654321"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2025-03-14T08:00:00.000Z"
+      },
+      "temperatura": "28°C",
+      "humedad": "65%",
+      "precipitacion": "5mm",
+      "viento": "15 km/h"
+    }
+  ],
+  "alertas": [
+    {
+      "tipoAlerta": "Plaga detectada",
+      "descripcionAlerta": "Se detectó una pequeña infestación de insectos.",
+      "fechaGenerada": {
+        "$date": "2025-03-14T09:00:00.000Z"
+      },
+      "horaGenerada": "09:00",
+      "estadoAlerta": "Pendiente"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67d4c7fa73f9b32cc34b065f"
+  },
+  "fechaRevision": {
+    "$date": "2025-03-14T12:00:00.000Z"
+  },
+  "estadoCultivo": "En crecimiento",
+  "observaciones": [
+    "El cultivo se encuentra en buen estado.",
+    "Se detectaron algunas plagas menores."
+  ],
+  "recomendaciones": [
+    "Aplicar pesticida de forma preventiva.",
+    "Aumentar riego."
+  ],
+  "idCultivo": {
+    "$oid": "60d2bfae5b0d5d1234567890"
+  },
+  "idUsuario": {
+    "$oid": "60d2bfae5b0d5d0987654321"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2025-03-14T08:00:00.000Z"
+      },
+      "temperatura": "28°C",
+      "humedad": "65%",
+      "precipitacion": "5mm",
+      "viento": "15 km/h"
+    }
+  ],
+  "alertas": [
+    {
+      "tipoAlerta": "Plaga detectada",
+      "descripcionAlerta": "Se detectó una pequeña infestación de insectos.",
+      "fechaGenerada": {
+        "$date": "2025-03-14T09:00:00.000Z"
+      },
+      "horaGenerada": "09:00",
+      "estadoAlerta": "Pendiente"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67d4d2149f33449e8e9248d3"
+  },
+  "fechaRevision": {
+    "$date": "2024-03-10T08:30:00.000Z"
+  },
+  "estadoCultivo": "En crecimiento",
+  "observaciones": [
+    "Hojas verdes y sanas",
+    "Buena humedad en el suelo"
+  ],
+  "recomendaciones": [
+    "Aplicar fertilizante nitrogenado",
+    "Monitorear plagas"
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-03-10T07:00:00.000Z"
+      },
+      "temperatura": "22°C",
+      "humedad": "60%",
+      "precipitacion": "0mm",
+      "viento": "5km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "67d4d2149f33449e8e9248d4"
+  },
+  "fechaRevision": {
+    "$date": "2024-03-12T09:00:00.000Z"
+  },
+  "estadoCultivo": "Floración",
+  "observaciones": [
+    "Primeras flores visibles",
+    "Sin signos de plagas"
+  ],
+  "recomendaciones": [
+    "Asegurar buena polinización",
+    "Verificar disponibilidad de agua"
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-03-12T08:00:00.000Z"
+      },
+      "temperatura": "24°C",
+      "humedad": "55%",
+      "precipitacion": "0mm",
+      "viento": "3km/h"
+    }
+  ],
+  "alertas": [
+    {
+      "tipoAlerta": "Plaga",
+      "descripcionAlerta": "Riesgo de ataque de pulgones",
+      "fechaGenerada": {
+        "$date": "2024-03-12T09:15:00.000Z"
+      },
+      "horaGenerada": "09:15",
+      "estadoAlerta": "Pendiente"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67d4d2149f33449e8e9248d5"
+  },
+  "fechaRevision": {
+    "$date": "2024-03-15T10:00:00.000Z"
+  },
+  "estadoCultivo": "Germinación",
+  "observaciones": [
+    "Emergencia uniforme de plántulas"
+  ],
+  "recomendaciones": [
+    "Aplicar riego ligero",
+    "Evitar encharcamientos"
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-03-15T09:00:00.000Z"
+      },
+      "temperatura": "20°C",
+      "humedad": "70%",
+      "precipitacion": "2mm",
+      "viento": "4km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "67d4d2149f33449e8e9248d6"
+  },
+  "fechaRevision": {
+    "$date": "2024-03-18T11:00:00.000Z"
+  },
+  "estadoCultivo": "Crecimiento vegetativo",
+  "observaciones": [
+    "Altura promedio de 30 cm"
+  ],
+  "recomendaciones": [
+    "Revisar nivel de nitrógeno en el suelo"
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-03-18T10:00:00.000Z"
+      },
+      "temperatura": "23°C",
+      "humedad": "50%",
+      "precipitacion": "0mm",
+      "viento": "6km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "67d4d2149f33449e8e9248d7"
+  },
+  "fechaRevision": {
+    "$date": "2024-03-20T12:00:00.000Z"
+  },
+  "estadoCultivo": "Floración",
+  "observaciones": [
+    "Inicio de formación de frutos"
+  ],
+  "recomendaciones": [
+    "Asegurar suficiente disponibilidad de fósforo"
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-03-20T11:00:00.000Z"
+      },
+      "temperatura": "26°C",
+      "humedad": "48%",
+      "precipitacion": "0mm",
+      "viento": "5km/h"
+    }
+  ],
+  "alertas": [
+    {
+      "tipoAlerta": "Deficiencia nutricional",
+      "descripcionAlerta": "Síntomas de deficiencia de fósforo",
+      "fechaGenerada": {
+        "$date": "2024-03-20T12:30:00.000Z"
+      },
+      "horaGenerada": "12:30",
+      "estadoAlerta": "Pendiente"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67d4d2149f33449e8e9248d8"
+  },
+  "fechaRevision": {
+    "$date": "2024-03-22T07:30:00.000Z"
+  },
+  "estadoCultivo": "En crecimiento",
+  "observaciones": [
+    "Sin signos de estrés hídrico"
+  ],
+  "recomendaciones": [
+    "Continuar monitoreo de humedad del suelo"
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-03-22T06:30:00.000Z"
+      },
+      "temperatura": "21°C",
+      "humedad": "65%",
+      "precipitacion": "1mm",
+      "viento": "4km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "67d4d2149f33449e8e9248d9"
+  },
+  "fechaRevision": {
+    "$date": "2024-03-25T13:00:00.000Z"
+  },
+  "estadoCultivo": "Maduración",
+  "observaciones": [
+    "Coloración uniforme en frutos"
+  ],
+  "recomendaciones": [
+    "Preparar cosecha para los próximos 15 días"
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-03-25T12:00:00.000Z"
+      },
+      "temperatura": "27°C",
+      "humedad": "55%",
+      "precipitacion": "0mm",
+      "viento": "3km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "67d4d2149f33449e8e9248da"
+  },
+  "fechaRevision": {
+    "$date": "2024-03-27T14:00:00.000Z"
+  },
+  "estadoCultivo": "Maduración",
+  "observaciones": [
+    "Bajo ataque de insectos"
+  ],
+  "recomendaciones": [
+    "Aplicar control biológico"
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-03-27T13:00:00.000Z"
+      },
+      "temperatura": "25°C",
+      "humedad": "50%",
+      "precipitacion": "0mm",
+      "viento": "7km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "67d4d2149f33449e8e9248db"
+  },
+  "fechaRevision": {
+    "$date": "2024-03-30T10:45:00.000Z"
+  },
+  "estadoCultivo": "Cosecha en proceso",
+  "observaciones": [
+    "Primeros lotes cosechados con buen rendimiento"
+  ],
+  "recomendaciones": [
+    "Continuar cosecha escalonada",
+    "Verificar niveles de humedad en grano"
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-03-30T09:30:00.000Z"
+      },
+      "temperatura": "28°C",
+      "humedad": "45%",
+      "precipitacion": "0mm",
+      "viento": "6km/h"
+    }
+  ],
+  "alertas": []
+},
+{
+  "_id": {
+    "$oid": "67d4d2149f33449e8e9248dc"
+  },
+  "fechaRevision": {
+    "$date": "2024-04-02T11:30:00.000Z"
+  },
+  "estadoCultivo": "Post-cosecha",
+  "observaciones": [
+    "Residuos de cultivo listos para manejo"
+  ],
+  "recomendaciones": [
+    "Realizar rotación de cultivos",
+    "Preparar suelo para próxima siembra"
+  ],
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  },
+  "datosClimaticos": [
+    {
+      "fechaMedicion": {
+        "$date": "2024-04-02T10:30:00.000Z"
+      },
+      "temperatura": "26°C",
+      "humedad": "50%",
+      "precipitacion": "1mm",
+      "viento": "5km/h"
+    }
+  ],
+  "alertas": [
+    {
+      "tipoAlerta": "Suelo",
+      "descripcionAlerta": "Necesidad de recuperación de nutrientes",
+      "fechaGenerada": {
+        "$date": "2024-04-02T12:00:00.000Z"
+      },
+      "horaGenerada": "12:00",
+      "estadoAlerta": "Pendiente"
+    }
+  ]
+}]

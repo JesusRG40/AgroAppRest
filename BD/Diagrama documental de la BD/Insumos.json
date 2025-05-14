@@ -1,0 +1,7 @@
+{
+    "_id": "ObjectId()",
+    "nombreInsumo": "String",
+    "tipoInsumo": "String",
+    "cantDisponible": "number",
+    "unidadMedida": "String"
+}

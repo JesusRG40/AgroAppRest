@@ -1,0 +1,240 @@
+[{
+  "_id": {
+    "$oid": "672ad86a5cf84d30d9b5024c"
+  },
+  "actividad": "Recolección de muestras de hojas",
+  "fechaActividad": {
+    "$date": "2024-03-10T00:00:00.000Z"
+  },
+  "estatus": false,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50235"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b5022d"
+  }
+},
+{
+  "_id": {
+    "$oid": "672ad86a5cf84d30d9b5024d"
+  },
+  "actividad": "Revisión de sistema de riego",
+  "fechaActividad": {
+    "$date": "2024-04-15T00:00:00.000Z"
+  },
+  "estatus": true,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b5023b"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b5022c"
+  }
+},
+{
+  "_id": {
+    "$oid": "672ad86a5cf84d30d9b5024e"
+  },
+  "actividad": "Mantenimiento de herramientas agrícolas",
+  "fechaActividad": {
+    "$date": "2024-02-28T00:00:00.000Z"
+  },
+  "estatus": false,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50235"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b5022d"
+  }
+},
+{
+  "_id": {
+    "$oid": "672ad86a5cf84d30d9b5024f"
+  },
+  "actividad": "Instalación de cercas de protección",
+  "fechaActividad": {
+    "$date": "2024-05-05T00:00:00.000Z"
+  },
+  "estatus": true,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b5023b"
+  },
+  "idUsuario": {
+    "$oid": "672ac8be5cf84d30d9b5022b"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cb23c7609a4899ef3c41"
+  },
+  "actividad": "Riego del cultivo",
+  "fechaActividad": {
+    "$date": "2025-03-14T08:00:00.000Z"
+  },
+  "estatus": true,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cc79c7609a4899ef3c42"
+  },
+  "actividad": "Riego de emergencia",
+  "fechaActividad": {
+    "$date": "2024-03-10T08:00:00.000Z"
+  },
+  "estatus": true,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cc79c7609a4899ef3c43"
+  },
+  "actividad": "Aplicación de fertilizante",
+  "fechaActividad": {
+    "$date": "2024-03-11T10:30:00.000Z"
+  },
+  "estatus": false,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cc79c7609a4899ef3c44"
+  },
+  "actividad": "Monitoreo de plagas",
+  "fechaActividad": {
+    "$date": "2024-03-12T09:15:00.000Z"
+  },
+  "estatus": true,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cc79c7609a4899ef3c45"
+  },
+  "actividad": "Podado de plantas",
+  "fechaActividad": {
+    "$date": "2024-03-13T07:45:00.000Z"
+  },
+  "estatus": true,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cc79c7609a4899ef3c46"
+  },
+  "actividad": "Cosecha parcial",
+  "fechaActividad": {
+    "$date": "2024-03-14T14:00:00.000Z"
+  },
+  "estatus": false,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cc79c7609a4899ef3c47"
+  },
+  "actividad": "Mantenimiento del sistema de riego",
+  "fechaActividad": {
+    "$date": "2024-03-15T08:30:00.000Z"
+  },
+  "estatus": true,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cc79c7609a4899ef3c48"
+  },
+  "actividad": "Revisión de nivel de humedad",
+  "fechaActividad": {
+    "$date": "2024-03-16T11:20:00.000Z"
+  },
+  "estatus": false,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cc79c7609a4899ef3c49"
+  },
+  "actividad": "Preparación del terreno",
+  "fechaActividad": {
+    "$date": "2024-03-17T06:50:00.000Z"
+  },
+  "estatus": true,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cc79c7609a4899ef3c4a"
+  },
+  "actividad": "Control de maleza",
+  "fechaActividad": {
+    "$date": "2024-03-18T13:10:00.000Z"
+  },
+  "estatus": false,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50233"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  }
+},
+{
+  "_id": {
+    "$oid": "67d4cc79c7609a4899ef3c4b"
+  },
+  "actividad": "Supervisión del crecimiento",
+  "fechaActividad": {
+    "$date": "2024-03-19T15:00:00.000Z"
+  },
+  "estatus": true,
+  "idCultivo": {
+    "$oid": "672ace1d5cf84d30d9b50234"
+  },
+  "idUsuario": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  }
+}]

@@ -1,0 +1,126 @@
+[{
+  "_id": {
+    "$oid": "672ac9a15cf84d30d9b5022e"
+  },
+  "nombreInsumo": "Fertilizante Nitrogenado",
+  "tipoInsumo": "Fertilizante",
+  "cantDisponible": 350,
+  "unidadMedida": "kg"
+},
+{
+  "_id": {
+    "$oid": "672ac9a15cf84d30d9b5022f"
+  },
+  "nombreInsumo": "Pesticida Orgánico",
+  "tipoInsumo": "Pesticida",
+  "cantDisponible": 120,
+  "unidadMedida": "L"
+},
+{
+  "_id": {
+    "$oid": "672ac9a15cf84d30d9b50230"
+  },
+  "nombreInsumo": "Abono Compuesto",
+  "tipoInsumo": "Fertilizante",
+  "cantDisponible": 500,
+  "unidadMedida": "kg"
+},
+{
+  "_id": {
+    "$oid": "672ac9a15cf84d30d9b50232"
+  },
+  "nombreInsumo": "Herbicida Sistémico",
+  "tipoInsumo": "Herbicida",
+  "cantDisponible": 100,
+  "unidadMedida": "L"
+},
+{
+  "_id": {
+    "$oid": "67d4cd09b30168a0c415b062"
+  },
+  "nombreInsumo": "Fertilizante NPK",
+  "tipoInsumo": "Fertilizante",
+  "cantDisponible": 50,
+  "unidadMedida": "kg"
+},
+{
+  "_id": {
+    "$oid": "67d4cd09b30168a0c415b063"
+  },
+  "nombreInsumo": "Herbicida Selectivo",
+  "tipoInsumo": "Herbicida",
+  "cantDisponible": 20,
+  "unidadMedida": "litros"
+},
+{
+  "_id": {
+    "$oid": "67d4cd09b30168a0c415b064"
+  },
+  "nombreInsumo": "Semillas de Maíz",
+  "tipoInsumo": "Semillas",
+  "cantDisponible": 100,
+  "unidadMedida": "kg"
+},
+{
+  "_id": {
+    "$oid": "67d4cd09b30168a0c415b065"
+  },
+  "nombreInsumo": "Fungicida Orgánico",
+  "tipoInsumo": "Fungicida",
+  "cantDisponible": 15,
+  "unidadMedida": "litros"
+},
+{
+  "_id": {
+    "$oid": "67d4cd09b30168a0c415b066"
+  },
+  "nombreInsumo": "Insecticida Biológico",
+  "tipoInsumo": "Insecticida",
+  "cantDisponible": 25,
+  "unidadMedida": "litros"
+},
+{
+  "_id": {
+    "$oid": "67d4cd09b30168a0c415b067"
+  },
+  "nombreInsumo": "Sustrato para Germinación",
+  "tipoInsumo": "Sustrato",
+  "cantDisponible": 30,
+  "unidadMedida": "bolsas"
+},
+{
+  "_id": {
+    "$oid": "67d4cd09b30168a0c415b068"
+  },
+  "nombreInsumo": "Abono Orgánico",
+  "tipoInsumo": "Fertilizante",
+  "cantDisponible": 75,
+  "unidadMedida": "kg"
+},
+{
+  "_id": {
+    "$oid": "67d4cd09b30168a0c415b069"
+  },
+  "nombreInsumo": "Cal Agrícola",
+  "tipoInsumo": "Acondicionador de suelo",
+  "cantDisponible": 40,
+  "unidadMedida": "kg"
+},
+{
+  "_id": {
+    "$oid": "67d4cd09b30168a0c415b06a"
+  },
+  "nombreInsumo": "Riego por Goteo",
+  "tipoInsumo": "Sistema de Riego",
+  "cantDisponible": 10,
+  "unidadMedida": "kits"
+},
+{
+  "_id": {
+    "$oid": "67d4cd09b30168a0c415b06b"
+  },
+  "nombreInsumo": "Plástico para Invernadero",
+  "tipoInsumo": "Material",
+  "cantDisponible": 200,
+  "unidadMedida": "m2"
+}]

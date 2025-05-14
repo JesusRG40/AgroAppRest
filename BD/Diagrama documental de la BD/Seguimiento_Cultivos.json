@@ -1,0 +1,27 @@
+{
+    "_id": "ObjectId()",
+    "fechaRevision": "Date",
+    "estadoCultivo": "String",
+    "observaciones": ["String"],
+    "recomendaciones": ["String"],
+    "idCultivo": "ref(Cultivos._id)",
+    "idUsuario": "ref(Usuarios._id)",
+    "datosClimaticos": [
+        {
+            "fechaMedicion": "Date",
+            "temperatura": "String",
+            "humedad": "String",
+            "precipitacion": "String",
+            "viento": "String"
+        }
+    ],
+    "alertas": [
+        {
+            "tipoAlerta": "String",
+            "descripcionAlerta": "String",
+            "fechaGenerada": "Date",
+            "horaGenerada": "String",
+            "estadoAlerta": "String"
+        }
+    ]
+}

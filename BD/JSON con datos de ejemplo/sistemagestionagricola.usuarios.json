@@ -1,0 +1,148 @@
+[{
+  "_id": {
+    "$oid": "672ac8be5cf84d30d9b50229"
+  },
+  "nombre": "Alan Magdaleno",
+  "telefono": "5551234567",
+  "estatus": true,
+  "domicilio": {
+    "calle": "Avenida Siempre Viva",
+    "numero": "123",
+    "colonia": "Centro",
+    "ciudad": "Ciudad de México",
+    "estado": "CDMX",
+    "codigoPostal": "01000"
+  },
+  "email": "alan.perez@example.com",
+  "password": "securePassword123",
+  "rol": "Administrador"
+},
+{
+  "_id": {
+    "$oid": "672ac8be5cf84d30d9b5022d"
+  },
+  "nombre": "Pedro Ramírez",
+  "telefono": "5567890123",
+  "estatus": false,
+  "domicilio": {
+    "calle": "Boulevard del Sol",
+    "numero": "567",
+    "colonia": "Industrial",
+    "ciudad": "León",
+    "estado": "Guanajuato",
+    "codigoPostal": "37000"
+  },
+  "email": "pedro.ramirez@example.com",
+  "password": "PedroSecure123",
+  "rol": "Agricultor"
+},
+{
+  "_id": {
+    "$oid": "67d4c717b2ba0a684660eea7"
+  },
+  "nombre": "Carlos Eduardo Ramírez Hernández",
+  "telefono": "351241524",
+  "estatus": true,
+  "email": "carlos_rami@Gmail.com",
+  "password": "CarlEdu40",
+  "rol": "Agricultor"
+},
+{
+  "_id": {
+    "$oid": "67d4c717b2ba0a684660eea8"
+  },
+  "nombre": "María Fernanda López González",
+  "telefono": "3519876543",
+  "estatus": true,
+  "email": "maria_gon@Outlook.com",
+  "password": "GatosNegros456",
+  "rol": "Comercializador"
+},
+{
+  "_id": {
+    "$oid": "67d4c717b2ba0a684660eea9"
+  },
+  "nombre": "José Manuel Paredes Castillo",
+  "telefono": "3513217890",
+  "estatus": true,
+  "email": "jose_m.paredes@outlook.com",
+  "password": "JoseJose2014",
+  "rol": "Gestor de insumos"
+},
+{
+  "_id": {
+    "$oid": "67d4c717b2ba0a684660eeaa"
+  },
+  "nombre": "Luis Alberto Moreno Ríos",
+  "telefono": "3514567891",
+  "estatus": true,
+  "email": "luis-a_moreno90@hotmail.com",
+  "password": "Albert0_5501",
+  "rol": "Comercializador"
+},
+{
+  "_id": {
+    "$oid": "67d4c717b2ba0a684660eeab"
+  },
+  "nombre": "Ana Sofía Castañeda Vargas",
+  "telefono": "3517894321",
+  "estatus": true,
+  "email": "anasofia.castanedav@yahoo.com",
+  "password": "Castanedav01",
+  "rol": "Agricultor"
+},
+{
+  "_id": {
+    "$oid": "67d4c717b2ba0a684660eeac"
+  },
+  "nombre": "Raúl Ignacio Torres Méndez",
+  "telefono": "3512345678",
+  "estatus": true,
+  "email": "raul.tm@gmail.com",
+  "password": "RaulSeguro2024",
+  "rol": "Agricultor"
+},
+{
+  "_id": {
+    "$oid": "67d4c717b2ba0a684660eead"
+  },
+  "nombre": "Patricia del Carmen Morales Pineda",
+  "telefono": "3518765432",
+  "estatus": true,
+  "email": "delcarmenmorales@outlook.com",
+  "password": "PatyFuerte789",
+  "rol": "Gestor de insumos"
+},
+{
+  "_id": {
+    "$oid": "67d4c717b2ba0a684660eeae"
+  },
+  "nombre": "Jorge Luis Salazar Domínguez",
+  "telefono": "3516547890",
+  "estatus": true,
+  "email": "jlsalazar90@empresa.com",
+  "password": "JorgeSecure_123",
+  "rol": "Técnico de suelo"
+},
+{
+  "_id": {
+    "$oid": "67d4c717b2ba0a684660eeaf"
+  },
+  "nombre": "Verónica Beatriz García Sánchez",
+  "telefono": "3513456789",
+  "estatus": true,
+  "email": "vero.bgarcia@hotmail.com",
+  "password": "Vero_GarciaS456",
+  "rol": "Supervisor"
+},
+{
+  "_id": {
+    "$oid": "67d4c717b2ba0a684660eeb0"
+  },
+  "nombre": "Emilio Andrés Peña Carrillo",
+  "telefono": "3519873210",
+  "estatus": true,
+  "email": "emilio-andres.pc@yahoo.com",
+  "password": "PerrosGordos789",
+  "rol": "Agricultor"
+}]

@@ -1,0 +1,9 @@
+{
+    "_id": "ObjectId()",
+    "nombre": "String",
+    "telefono": "String",
+    "estatus": "boolean",
+    "email": "String",
+    "password": "String",
+    "rol": "String // Valores posibles: 'Agricultor', 'Administrador', 'Supervisor'"
+}

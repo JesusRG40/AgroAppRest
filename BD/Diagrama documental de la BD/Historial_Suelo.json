@@ -1,0 +1,15 @@
+{
+    "_id": "ObjectId()",
+    "fechaMedicion": "Date",
+    "pH": "number",
+    "nutrientes": [
+        {
+            "nutriente": "String",
+            "valor": "number",
+            "unidad": "String"
+        }
+    ],
+    "observaciones": ["String"],
+    "idCultivo": "ref(Cultivos._id)",
+    "idUsuario": "ref(Usuarios._id)"
+}

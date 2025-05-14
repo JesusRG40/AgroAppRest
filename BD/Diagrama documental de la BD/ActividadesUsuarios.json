@@ -1,0 +1,8 @@
+{
+    "_id": "ObjectId()",
+    "actividad": "String",
+    "fechaActividad": "Date",
+    "estatus": "boolean",
+    "idCultivo": "ref(Cultivos._id)",
+    "idUsuario": "ref(Usuarios._id)"
+}
