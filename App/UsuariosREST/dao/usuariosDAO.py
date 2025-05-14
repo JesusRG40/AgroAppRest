@@ -45,7 +45,6 @@ class UsuarioDAO:
                 return salida
 
             # 4. Insertar el usuario en la base de datos
-            #    (En producción deberías hashear la contraseña antes de guardar)
             doc = jsonable_encoder(usuario)
             result = self.db.usuarios.insert_one(doc)
 
@@ -100,7 +99,6 @@ class UsuarioDAO:
                         "incluir mayúsculas, minúsculas y números."
                     )
                     return salida
-                # En producción, aquí hashear la contraseña antes de guardar
                 update_fields["password"] = datos.password
 
             # 4. Validar rol si se va a modificar
@@ -123,7 +121,6 @@ class UsuarioDAO:
             if datos.domicilio is not None:
                 update_fields["domicilio"] = jsonable_encoder(datos.domicilio)
 
-            # Si no hay nada para actualizar
             if not update_fields:
                 salida.estatus = "ERROR"
                 salida.mensaje = "No se proporcionaron campos para actualizar."
@@ -220,7 +217,7 @@ class UsuarioDAO:
                 nombre=doc.get("nombre", ""),
                 telefono=doc.get("telefono", ""),
                 estatus=doc.get("estatus", False),
-                domicilio=doc.get("domicilio"),  # Pydantic castea dict a Domicilio opcional
+                domicilio=doc.get("domicilio"),
                 email=doc.get("email", ""),
                 password=doc.get("password", ""),
                 rol=doc.get("rol", "")
@@ -250,7 +247,6 @@ class UsuarioDAO:
                 return salida
 
             # 2. Comparar la contraseña
-            #    (En producción la compararías contra un hash almacenado)
             if usuario.get("password") != password:
                 salida.estatus = "ERROR"
                 salida.mensaje = "Contraseña incorrecta."
