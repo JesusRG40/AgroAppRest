@@ -222,7 +222,7 @@ class UsuarioDAO:
                 nombre=doc.get("nombre", ""),
                 telefono=doc.get("telefono", ""),
                 estatus=doc.get("estatus", False),
-                domicilio=doc.get("domicilio"),  # Pydantic castea dict a Domicilio opcional
+                domicilio=doc.get("domicilio"),
                 email=doc.get("email", ""),
                 password=doc.get("password", ""),
                 rol=doc.get("rol", "")
@@ -252,7 +252,6 @@ class UsuarioDAO:
                 return salida
 
             # 2. Comparar la contraseña
-            #    (En producción la compararías contra un hash almacenado)
             if usuario.get("password") != password:
                 salida.estatus = "ERROR"
                 salida.mensaje = "Contraseña incorrecta."
