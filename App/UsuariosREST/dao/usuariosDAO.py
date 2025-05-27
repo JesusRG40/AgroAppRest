@@ -45,7 +45,6 @@ class UsuarioDAO:
                 return salida
 
             # 4. Insertar el usuario en la base de datos
-            #    (En producción deberías hashear la contraseña antes de guardar)
             doc = jsonable_encoder(usuario)
             result = self.db.usuarios.insert_one(doc)
 
@@ -100,7 +99,6 @@ class UsuarioDAO:
                         "incluir mayúsculas, minúsculas y números."
                     )
                     return salida
-                # En producción, aquí hashear la contraseña antes de guardar
                 update_fields["password"] = datos.password
 
             # 4. Validar rol si se va a modificar
@@ -168,14 +166,18 @@ class UsuarioDAO:
                 salida.mensaje = f"No se encontró un usuario con id: {id_usuario}"
                 return salida
 
-            # 3. Eliminar el usuario
-            result = self.db.usuarios.delete_one({"_id": oid})
-            if result.deleted_count == 1:
+            # 3. Realizar la eliminación lógica (cambiar estatus a False)
+            result = self.db.usuarios.update_one(
+                {"_id": oid},
+                {"$set": {"estatus": False}}
+            )
+
+            if result.modified_count == 1:
                 salida.estatus = "OK"
-                salida.mensaje = f"Usuario {id_usuario} eliminado con éxito."
+                salida.mensaje = f"Usuario {id_usuario} desactivado con éxito."
             else:
                 salida.estatus = "ERROR"
-                salida.mensaje = f"No se pudo eliminar el usuario {id_usuario}."
+                salida.mensaje = "No se pudo eliminar el usuario (sin cambios detectados)."
             return salida
 
         except Exception as ex:
