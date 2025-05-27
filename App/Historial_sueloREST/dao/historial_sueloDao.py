@@ -1,5 +1,5 @@
 from bson import ObjectId
-from models.historial_sueloModels import HistorialSueloInsert, HistorialSueloUpdate, Salida, HistorialSueloSalida, HistorialSueloDetalleSalida, HistorialSueloDetalle
+from models.historial_sueloModels import *
 from datetime import datetime, date
 
 class HistorialSueloDAO:
@@ -8,17 +8,8 @@ class HistorialSueloDAO:
         self.coleccion = db["historial_suelo"]
 
     def registrar(self, historial_suelo: HistorialSueloInsert) -> Salida:
-        # Convertir los datos de HistorialSueloInsert a la estructura que espera MongoDB
-        nuevo = {
-            "fechaMedicion": datetime.combine(historial_suelo.fechaMedicion, datetime.min.time()),  # Convertir date a datetime
-            "pH": historial_suelo.pH,
-            "nutrientes": historial_suelo.nutrientes,
-            "observaciones": historial_suelo.observaciones,
-            "idCultivo": historial_suelo.idCultivo,
-            "idUsuario": historial_suelo.idUsuario
-        }
-
-        # Insertar el nuevo historial de suelo
+        nuevo = historial_suelo.dict()
+        nuevo["fechaMedicion"] = datetime.combine(historial_suelo.fechaMedicion, datetime.min.time())
         resultado = self.coleccion.insert_one(nuevo)
 
         if not resultado.inserted_id:
@@ -30,64 +21,63 @@ class HistorialSueloDAO:
         try:
             filtro = {"_id": ObjectId(idHistorial)}
         except Exception:
-            return Salida(mensaje="ID de historial de suelo inválido", success=False, estatus=400)
+            return Salida(mensaje="ID inválido", success=False, estatus=400)
 
         datos_actualizados = {}
         for k, v in datos.dict().items():
             if v is not None:
-                # Convertir date a datetime
                 if isinstance(v, date) and not isinstance(v, datetime):
                     v = datetime.combine(v, datetime.min.time())
                 datos_actualizados[k] = v
 
         resultado = self.coleccion.update_one(filtro, {"$set": datos_actualizados})
-
         if resultado.matched_count == 0:
-            return Salida(mensaje="Historial de suelo no encontrado", success=False, estatus=404)
+            return Salida(mensaje="Historial no encontrado", success=False, estatus=404)
 
-        return Salida(mensaje="Historial de suelo actualizado correctamente", success=True, estatus=200)
+        return Salida(mensaje="Actualizado correctamente", success=True, estatus=200)
 
     def borrar(self, idHistorial: str) -> Salida:
         try:
             filtro = {"_id": ObjectId(idHistorial)}
         except Exception:
-            return Salida(mensaje="ID de historial de suelo inválido", success=False, estatus=400)
+            return Salida(mensaje="ID inválido", success=False, estatus=400)
 
-        resultado = self.coleccion.delete_one(filtro)
+        resultado = self.coleccion.update_one(filtro, {"$set": {"eliminado": True}})
+        if resultado.matched_count == 0:
+            return Salida(mensaje="Historial no encontrado", success=False, estatus=404)
 
-        if resultado.deleted_count == 0:
-            return Salida(mensaje="Historial de suelo no encontrado", success=False, estatus=404)
-
-        return Salida(mensaje="Historial de suelo eliminado correctamente", success=True, estatus=200)
+        return Salida(mensaje="Historial eliminado lógicamente", success=True, estatus=200)
 
     def consultar_lista(self) -> HistorialSueloSalida:
         lista = []
-        for historial in self.coleccion.find():
+        for h in self.coleccion.find({"eliminado": False}):
+            nombre_cultivo = self.db.cultivos.find_one({"_id": ObjectId(h["idCultivo"])}, {"nomCultivo": 1})
+            nombre_usuario = self.db.usuarios.find_one({"_id": ObjectId(h["idUsuario"])}, {"nombre": 1})
+
             historial_detalle = HistorialSueloDetalle(
-                idHistorial=str(historial["_id"]),
-                fechaMedicion=historial["fechaMedicion"],
-                pH=historial["pH"],
-                nutrientes=historial["nutrientes"],
-                observaciones=historial["observaciones"],
-                idCultivo=historial["idCultivo"],
-                idUsuario=historial["idUsuario"]
+                idHistorial=str(h["_id"]),
+                fechaMedicion=h["fechaMedicion"],
+                pH=h["pH"],
+                nutrientes=h["nutrientes"],
+                observaciones=h["observaciones"],
+                idCultivo=nombre_cultivo.get("nomCultivo", "Desconocido") if nombre_cultivo else "Desconocido",
+                idUsuario=nombre_usuario.get("nombre", "Desconocido") if nombre_usuario else "Desconocido"
             )
             lista.append(historial_detalle)
         return HistorialSueloSalida(historiales=lista)
 
     def consultar(self, idHistorial: str) -> HistorialSueloDetalleSalida:
         try:
-            # Convertir la ID a ObjectId
-            filtro = {"_id": ObjectId(idHistorial)}
-        except Exception as e:
-            # Captura cualquier error al convertir la ID
-            return Salida(mensaje="ID de historial de suelo inválido", success=False, estatus=400)
+            filtro = {"_id": ObjectId(idHistorial), "eliminado": False}
+        except Exception:
+            return Salida(mensaje="ID inválido", success=False, estatus=400)
 
-        # Consulta a la base de datos
         historial = self.coleccion.find_one(filtro)
-
         if not historial:
-            return Salida(mensaje="Historial de suelo no encontrado", success=False, estatus=404)
+            return Salida(mensaje="No encontrado", success=False, estatus=404)
+
+        nombre_cultivo = self.db.cultivos.find_one({"_id": ObjectId(historial["idCultivo"])}, {"nomCultivo": 1})
+        nombre_usuario = self.db.usuarios.find_one({"_id": ObjectId(historial["idUsuario"])}, {"nombre": 1})
 
         return HistorialSueloDetalleSalida(
             historial=HistorialSueloDetalle(
@@ -96,10 +86,10 @@ class HistorialSueloDAO:
                 pH=historial["pH"],
                 nutrientes=historial["nutrientes"],
                 observaciones=historial["observaciones"],
-                idCultivo=historial["idCultivo"],
-                idUsuario=historial["idUsuario"]
+                idCultivo=nombre_cultivo.get("nomCultivo", "Desconocido") if nombre_cultivo else "Desconocido",
+                idUsuario=nombre_usuario.get("nombre", "Desconocido") if nombre_usuario else "Desconocido"
             ),
-            mensaje="Historial de suelo encontrado",
+            mensaje="Historial encontrado",
             success=True,
             estatus=200
         )
