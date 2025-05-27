@@ -1,0 +1,48 @@
+{
+  "riegos": [
+    {
+      "fechaRiego": "2024-08-17T00:00:00",
+      "cantidadAgua": 100,
+      "metodoRiego": "Goteo",
+      "duracionRiego": 4,
+      "idUsuario": "672ac8be5cf84d30d9b50229"
+    },
+    {
+      "fechaRiego": "2024-12-15T00:00:00",
+      "cantidadAgua": 100,
+      "metodoRiego": "Aspersión",
+      "duracionRiego": 1,
+      "idUsuario": "68241384d75f51a9d633c934"
+    },
+    {
+      "fechaRiego": "2024-07-01T00:00:00",
+      "cantidadAgua": 150,
+      "metodoRiego": "Aspersión",
+      "duracionRiego": 2,
+      "idUsuario": "672ac8be5cf84d30d9b50229"
+    },
+    {
+      "fechaRiego": "2024-07-05T00:00:00",
+      "cantidadAgua": 120,
+      "metodoRiego": "Goteo",
+      "duracionRiego": 3,
+      "idUsuario": "68241384d75f51a9d633c934"
+    },
+    {
+      "fechaRiego": "2024-09-10T00:00:00",
+      "cantidadAgua": 80,
+      "metodoRiego": "Manual",
+      "duracionRiego": 1,
+      "idUsuario": "672ac8be5cf84d30d9b50229"
+    },
+    {
+      "fechaRiego": "2024-09-12T00:00:00",
+      "cantidadAgua": 200,
+      "metodoRiego": "Goteo",
+      "duracionRiego": 5,
+      "idUsuario": "68241384d75f51a9d633c934"
+    }
+  ]
+}
+    
+    

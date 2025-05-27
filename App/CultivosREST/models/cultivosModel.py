@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from datetime import date, datetime
+from typing import Optional
 
 class Salida(BaseModel):
     estatus: str
@@ -71,4 +72,4 @@ class UbicacionSubConsulta(UbicacionInsert):
 
 
 class UbicacionSalidaIndividual(Salida):
-    ubicacion: UbicacionSubConsulta | None = None
+    ubicacion: UbicacionSubConsulta | None = None    

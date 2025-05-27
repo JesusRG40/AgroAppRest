@@ -1,436 +1,73 @@
-[{
-  "_id": {
-    "$oid": "672ad1945cf84d30d9b5023d"
-  },
-  "fechaMedicion": {
-    "$date": "2024-01-15T00:00:00.000Z"
-  },
+{
+  "fechaMedicion": "2025-05-23",
   "pH": 6.5,
   "nutrientes": [
     {
-      "nutriente": "Nitrógeno",
-      "valor": 35,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Fósforo",
+      "nombre": "Nitrógeno",
       "valor": 20,
-      "unidad": "ppm"
+      "Unidad": "ppm"
     },
     {
-      "nutriente": "Potasio",
-      "valor": 40,
-      "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "pH adecuado",
-    "Niveles de nutrientes estables"
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50235"
-  },
-  "idUsuario": {
-    "$oid": "672ac8be5cf84d30d9b5022c"
-  }
-},
-{
-  "_id": {
-    "$oid": "672ad1945cf84d30d9b5023e"
-  },
-  "fechaMedicion": {
-    "$date": "2024-02-10T00:00:00.000Z"
-  },
-  "pH": 7.2,
-  "nutrientes": [
-    {
-      "nutriente": "Nitrógeno",
-      "valor": 28,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Magnesio",
-      "valor": 15,
-      "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "Nivel de pH ligeramente alto",
-    "Nitrógeno en buen rango"
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b5023b"
-  },
-  "idUsuario": {
-    "$oid": "672ac8be5cf84d30d9b5022d"
-  }
-},
-{
-  "_id": {
-    "$oid": "672ad1945cf84d30d9b50240"
-  },
-  "fechaMedicion": {
-    "$date": "2024-04-01T00:00:00.000Z"
-  },
-  "pH": 6.8,
-  "nutrientes": [
-    {
-      "nutriente": "Potasio",
-      "valor": 45,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Zinc",
-      "valor": 5,
-      "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "pH adecuado para el cultivo",
-    "Zinc ligeramente bajo"
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50234"
-  },
-  "idUsuario": {
-    "$oid": "672ac8be5cf84d30d9b5022b"
-  }
-},
-{
-  "_id": {
-    "$oid": "672ad1945cf84d30d9b50241"
-  },
-  "fechaMedicion": {
-    "$date": "2024-05-20T00:00:00.000Z"
-  },
-  "pH": 6.3,
-  "nutrientes": [
-    {
-      "nutriente": "Nitrógeno",
-      "valor": 30,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Fósforo",
-      "valor": 18,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Potasio",
-      "valor": 42,
-      "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "Niveles óptimos de nutrientes",
-    "pH estable"
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50236"
-  },
-  "idUsuario": {
-    "$oid": "672ac8be5cf84d30d9b50229"
-  }
-},
-{
-  "_id": {
-    "$oid": "67d4ca33336e60d1020aa67c"
-  },
-  "fechaMedicion": {
-    "$date": "2025-03-14T10:00:00.000Z"
-  },
-  "pH": 6.5,
-  "nutrientes": [
-    {
-      "nutriente": "Nitrógeno",
-      "valor": 45,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Fósforo",
-      "valor": 20,
-      "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "El pH es adecuado.",
-    "Los nutrientes están dentro del rango esperado."
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50233"
-  },
-  "idUsuario": {
-    "$oid": "67d4c717b2ba0a684660eea8"
-  }
-},
-{
-  "_id": {
-    "$oid": "67d4ca33336e60d1020aa67d"
-  },
-  "fechaMedicion": {
-    "$date": "2025-03-14T12:00:00.000Z"
-  },
-  "pH": 7,
-  "nutrientes": [
-    {
-      "nutriente": "Potasio",
-      "valor": 30,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Magnesio",
-      "valor": 15,
-      "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "El pH es ligeramente alto.",
-    "Los nutrientes están equilibrados."
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50233"
-  },
-  "idUsuario": {
-    "$oid": "67d4c717b2ba0a684660eea8"
-  }
-},
-{
-  "_id": {
-    "$oid": "67d4ca33336e60d1020aa67e"
-  },
-  "fechaMedicion": {
-    "$date": "2025-03-15T10:00:00.000Z"
-  },
-  "pH": 6.2,
-  "nutrientes": [
-    {
-      "nutriente": "Nitrógeno",
-      "valor": 50,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Fósforo",
-      "valor": 18,
-      "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "Los niveles de nitrógeno están por encima del promedio."
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50233"
-  },
-  "idUsuario": {
-    "$oid": "67d4c717b2ba0a684660eea8"
-  }
-},
-{
-  "_id": {
-    "$oid": "67d4ca33336e60d1020aa67f"
-  },
-  "fechaMedicion": {
-    "$date": "2025-03-15T12:00:00.000Z"
-  },
-  "pH": 6.8,
-  "nutrientes": [
-    {
-      "nutriente": "Potasio",
-      "valor": 25,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Calcio",
+      "nombre": "Fósforo",
       "valor": 10,
       "unidad": "ppm"
     }
   ],
   "observaciones": [
-    "El pH es ideal para el cultivo."
+    "Medición normal, sin anomalías"
   ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50233"
-  },
-  "idUsuario": {
-    "$oid": "67d4c717b2ba0a684660eea8"
-  }
-},
+  "idCultivo": "664a1cc28b0d7bb290c47c33",
+  "idUsuario": "68241384d75f51a9d633c934"
+}
+
 {
-  "_id": {
-    "$oid": "67d4ca33336e60d1020aa680"
-  },
-  "fechaMedicion": {
-    "$date": "2025-03-16T10:00:00.000Z"
-  },
-  "pH": 5.9,
+  "fechaMedicion": "2025-05-23",
+  "pH": 7.2,
   "nutrientes": [
     {
-      "nutriente": "Fósforo",
-      "valor": 22,
+      "nombre": "Potasio",
+      "valor": 15,
       "unidad": "ppm"
     },
     {
-      "nutriente": "Nitrógeno",
-      "valor": 48,
+      "nombre": "Calcio",
+      "valor": 8,
       "unidad": "ppm"
     }
   ],
   "observaciones": [
-    "El pH está ligeramente por debajo del nivel óptimo."
+    "Nivel de pH adecuado, sin signos de deficiencia"
   ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50233"
-  },
-  "idUsuario": {
-    "$oid": "67d4c717b2ba0a684660eea8"
-  }
-},
+  "idCultivo": "664a1cc28b0d7bb290c47c33",
+  "idUsuario": "68241384d75f51a9d633c934"
+}
+
 {
-  "_id": {
-    "$oid": "67d4ca33336e60d1020aa681"
-  },
-  "fechaMedicion": {
-    "$date": "2025-03-16T12:00:00.000Z"
-  },
-  "pH": 6.1,
+  "fechaMedicion": "2025-05-24",
+  "pH": 6.8,
   "nutrientes": [
     {
-      "nutriente": "Magnesio",
-      "valor": 16,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Calcio",
+      "nombre": "Magnesio",
       "valor": 12,
       "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "Los niveles de magnesio son buenos."
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50233"
-  },
-  "idUsuario": {
-    "$oid": "67d4c717b2ba0a684660eea8"
-  }
-},
-{
-  "_id": {
-    "$oid": "67d4ca33336e60d1020aa682"
-  },
-  "fechaMedicion": {
-    "$date": "2025-03-17T10:00:00.000Z"
-  },
-  "pH": 6.4,
-  "nutrientes": [
+    },
     {
-      "nutriente": "Nitrógeno",
-      "valor": 55,
+      "nombre": "Azufre",
+      "valor": 5,
       "unidad": "ppm"
     },
     {
-      "nutriente": "Potasio",
-      "valor": 28,
+      "nombre": "Hierro",
+      "valor": 3,
       "unidad": "ppm"
     }
   ],
   "observaciones": [
-    "Los niveles de potasio están muy buenos."
+    "Suelo ligeramente ácido, revisar niveles en próxima medición"
   ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50233"
-  },
-  "idUsuario": {
-    "$oid": "67d4c717b2ba0a684660eea8"
-  }
-},
-{
-  "_id": {
-    "$oid": "67d4ca33336e60d1020aa683"
-  },
-  "fechaMedicion": {
-    "$date": "2025-03-17T12:00:00.000Z"
-  },
-  "pH": 6.9,
-  "nutrientes": [
-    {
-      "nutriente": "Calcio",
-      "valor": 18,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Magnesio",
-      "valor": 14,
-      "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "El pH sigue siendo óptimo para el cultivo."
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50233"
-  },
-  "idUsuario": {
-    "$oid": "67d4c717b2ba0a684660eea8"
-  }
-},
-{
-  "_id": {
-    "$oid": "67d4ca33336e60d1020aa684"
-  },
-  "fechaMedicion": {
-    "$date": "2025-03-18T10:00:00.000Z"
-  },
-  "pH": 6.6,
-  "nutrientes": [
-    {
-      "nutriente": "Potasio",
-      "valor": 33,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Fósforo",
-      "valor": 25,
-      "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "La cantidad de fósforo está dentro de los niveles ideales."
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50233"
-  },
-  "idUsuario": {
-    "$oid": "67d4c717b2ba0a684660eea8"
-  }
-},
-{
-  "_id": {
-    "$oid": "67d4ca33336e60d1020aa685"
-  },
-  "fechaMedicion": {
-    "$date": "2025-03-18T12:00:00.000Z"
-  },
-  "pH": 6.7,
-  "nutrientes": [
-    {
-      "nutriente": "Calcio",
-      "valor": 20,
-      "unidad": "ppm"
-    },
-    {
-      "nutriente": "Magnesio",
-      "valor": 12,
-      "unidad": "ppm"
-    }
-  ],
-  "observaciones": [
-    "Los nutrientes son adecuados para el cultivo."
-  ],
-  "idCultivo": {
-    "$oid": "672ace1d5cf84d30d9b50234"
-  },
-  "idUsuario": {
-    "$oid": "67d4c717b2ba0a684660eeab"
-  }
-}]
+  "idCultivo": "664a1cc28b0d7bb290c47c33",
+  "idUsuario": "68241384d75f51a9d633c934"
+}
+
+
+

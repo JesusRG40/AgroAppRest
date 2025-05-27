@@ -423,4 +423,4 @@ class CultivoDAO:
             salida.estatus = "ERROR"
             salida.mensaje = "Error interno al consultar la ubicación. Consulte al administrador."
             salida.ubicacion = None
-        return salida
+        return salida    

@@ -121,7 +121,6 @@ class UsuarioDAO:
             if datos.domicilio is not None:
                 update_fields["domicilio"] = jsonable_encoder(datos.domicilio)
 
-            # Si no hay nada para actualizar
             if not update_fields:
                 salida.estatus = "ERROR"
                 salida.mensaje = "No se proporcionaron campos para actualizar."

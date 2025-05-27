@@ -53,3 +53,4 @@ class HistorialSueloDetalleSalida(Salida):
 # Salida con lista de historiales
 class HistorialSueloSalida(BaseModel):
     historiales: List[HistorialSueloDetalle]
+
