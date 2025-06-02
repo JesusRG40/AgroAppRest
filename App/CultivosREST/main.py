@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from dao.database import Conexion
-from rooters import cultivosRouter, riegosRouters  
+from rooters import cultivosRouter, riegosRouters
 
 app = FastAPI()
 

@@ -13,47 +13,43 @@ class RiegosDAO:
     def registrarNuevoRiego(self, id_cultivo: str, riego_data: RiegoInsert) -> Salida:
         salida = Salida(estatus="", mensaje="")
         try:
-            #Validar y convertir el ID del cultivo
             try:
                 obj_id_cultivo = ObjectId(id_cultivo)
             except Exception:
-                print("ID de cultivo inválido:", id_cultivo)
                 salida.estatus = "ERROR"
                 salida.mensaje = "El ID del cultivo proporcionado no tiene un formato válido."
                 return salida
 
-            #Verificar que el cultivo exista
             cultivo_existente = self.db.cultivos.find_one({"_id": obj_id_cultivo})
-            print("Cultivo encontrado:", cultivo_existente)  # Este es importante
             if not cultivo_existente:
                 salida.estatus = "ERROR"
                 salida.mensaje = f"No se encontró un cultivo con el ID: {id_cultivo}."
                 return salida
 
-            #Verificar que el usuario exista
-            print("ID Usuario recibido:", riego_data.idUsuario)
             try:
                 usuario_existente = self.db.usuarios.find_one({"_id": ObjectId(riego_data.idUsuario)})
-            except Exception as e:
-                print("Error convirtiendo ID de usuario:", riego_data.idUsuario)
+            except Exception:
                 salida.estatus = "ERROR"
                 salida.mensaje = "El ID del usuario proporcionado no tiene un formato válido."
                 return salida
 
-            print("Usuario encontrado:", usuario_existente)
             if not usuario_existente:
                 salida.estatus = "ERROR"
                 salida.mensaje = f"No se encontró un usuario con el ID: {riego_data.idUsuario}."
                 return salida
 
-            #Preparar documento del nuevo riego
             nuevo_riego_dict = riego_data.model_dump()
             nuevo_riego_dict["idRiego"] = str(ObjectId())
             nuevo_riego_dict["idUsuario"] = ObjectId(nuevo_riego_dict["idUsuario"])
             
-            nuevo_riego_dict["fechaRiego"] = datetime.combine(riego_data.fechaRiego, datetime.min.time())
+            # Convertir fechas a datetime.datetime con tiempo mínimo para MongoDB
+            nuevo_riego_dict["fechaEsperada"] = datetime.combine(riego_data.fechaEsperada, datetime.min.time())
+            if riego_data.fechaAplicada:
+                nuevo_riego_dict["fechaAplicada"] = datetime.combine(riego_data.fechaAplicada, datetime.min.time())
+            else:
+                nuevo_riego_dict["fechaAplicada"] = None
 
-            #Insertar el riego en el array 'riegos' del cultivo
+            # Insertar en el array riegos sin campo eliminado ni filtros de status
             result = self.db.cultivos.update_one(
                 {"_id": obj_id_cultivo},
                 {"$push": {"riegos": nuevo_riego_dict}}
@@ -61,24 +57,21 @@ class RiegosDAO:
 
             if result.modified_count == 1:
                 salida.estatus = "OK"
-                salida.mensaje = (
-                    f"Riego agregado exitosamente al cultivo con ID '{id_cultivo}'. "
-                    f"ID del riego: {nuevo_riego_dict['idRiego']}."
-                )
+                salida.mensaje = f"Riego agregado exitosamente al cultivo con ID '{id_cultivo}'. ID del riego: {nuevo_riego_dict['idRiego']}."
             else:
                 salida.estatus = "ERROR"
                 salida.mensaje = "No se pudo agregar el riego. Verifica que el cultivo siga existiendo."
 
         except Exception as ex:
-            print(f"Error en CultivoDAO.registrarNuevoRiego: {ex}")
+            print(f"Error en RiegosDAO.registrarNuevoRiego: {ex}")
             salida.estatus = "ERROR"
             salida.mensaje = "Error interno al registrar el riego. Consulte al administrador."
         return salida
 
+
     def actualizarRiegoDeCultivo(self, id_cultivo: str, id_riego: str, riego_data: RiegoParcialUpdate) -> Salida:
         salida = Salida(estatus="", mensaje="")
         try:
-            #Validar ID del cultivo
             try:
                 obj_id_cultivo = ObjectId(id_cultivo)
             except Exception:
@@ -86,12 +79,14 @@ class RiegosDAO:
                 salida.mensaje = "ID del cultivo no válido."
                 return salida
 
-            #Preparar los campos a actualizar
             campos_actualizar = {}
 
-            #Convertir fechaRiego de date a datetime.datetime si se proporciona
-            if riego_data.fechaRiego is not None:
-                campos_actualizar["riegos.$.fechaRiego"] = datetime.combine(riego_data.fechaRiego, datetime.min.time())
+            # Actualizar fechas con nueva estructura
+            if riego_data.fechaEsperada is not None:
+                campos_actualizar["riegos.$.fechaEsperada"] = datetime.combine(riego_data.fechaEsperada, datetime.min.time())
+
+            if riego_data.fechaAplicada is not None:
+                campos_actualizar["riegos.$.fechaAplicada"] = datetime.combine(riego_data.fechaAplicada, datetime.min.time())
 
             if riego_data.cantAgua is not None:
                 if riego_data.cantAgua <= 0:
@@ -129,21 +124,22 @@ class RiegosDAO:
                     return salida
                 campos_actualizar["riegos.$.idUsuario"] = id_usuario_obj
 
-            if riego_data.eliminado is not None:
-                campos_actualizar["riegos.$.eliminado"] = riego_data.eliminado
+            if riego_data.status is not None:
+                if riego_data.status not in ["Pendiente", "Aplicado", "Cancelado"]:
+                    salida.estatus = "ERROR"
+                    salida.mensaje = "Estado (status) inválido."
+                    return salida
+                campos_actualizar["riegos.$.status"] = riego_data.status
 
-            #validar que haya algo para actualizar
             if not campos_actualizar:
                 salida.estatus = "ERROR"
                 salida.mensaje = "No se proporcionaron campos para actualizar."
                 return salida
 
-            #Realizar la actualización
             result = self.db.cultivos.update_one(
                 {
                     "_id": obj_id_cultivo,
-                    "riegos.idRiego": id_riego,
-                    "riegos.eliminado": False
+                    "riegos.idRiego": id_riego
                 },
                 {"$set": campos_actualizar}
             )
@@ -156,10 +152,10 @@ class RiegosDAO:
                 salida.mensaje = f"Riego con ID '{id_riego}' actualizado exitosamente."
             else:
                 salida.estatus = "OK"
-                salida.mensaje = f"No se realizaron cambios; los datos son iguales a los existentes."
+                salida.mensaje = "No se realizaron cambios; los datos son iguales a los existentes."
 
         except Exception as ex:
-            print(f"Error en CultivoDAO.actualizarRiegoDeCultivo: {ex}")
+            print(f"Error en RiegosDAO.actualizarRiegoDeCultivo: {ex}")
             salida.estatus = "ERROR"
             salida.mensaje = "Error interno al actualizar el riego."
         return salida
@@ -168,7 +164,6 @@ class RiegosDAO:
     def consultarRiegoDeCultivoPorId(self, id_cultivo: str, id_riego: str) -> RiegoConsultaIndividual:
         salida = RiegoConsultaIndividual(estatus="", mensaje="", riego=None)
         try:
-            #Validar el ID del cultivo
             try:
                 obj_id_cultivo = ObjectId(id_cultivo)
             except Exception:
@@ -176,32 +171,21 @@ class RiegosDAO:
                 salida.mensaje = "El ID del cultivo proporcionado no tiene un formato válido."
                 return salida
 
-            #Buscar el cultivo con el riego que coincida y que no esté eliminado
+            # Ya no filtramos por status o eliminado, solo por idRiego
             cultivo_doc = self.db.cultivos.find_one(
                 {
                     "_id": obj_id_cultivo,
-                    "riegos": {
-                        "$elemMatch": {
-                            "idRiego": id_riego,
-                            "eliminado": False
-                        }
-                    }
+                    "riegos.idRiego": id_riego
                 },
                 {
                     "_id": 0,
-                    "riegos": {
-                        "$elemMatch": {
-                            "idRiego": id_riego,
-                            "eliminado": False
-                        }
-                    }
+                    "riegos": {"$elemMatch": {"idRiego": id_riego}}
                 }
             )
 
             if cultivo_doc and "riegos" in cultivo_doc and cultivo_doc["riegos"]:
                 riego_encontrado = cultivo_doc["riegos"][0]
 
-                #Obtener el nombre del usuario
                 id_usuario = riego_encontrado.get("idUsuario")
                 if isinstance(id_usuario, ObjectId):
                     id_usuario = str(id_usuario)
@@ -212,10 +196,8 @@ class RiegosDAO:
                 except:
                     nombre_usuario = "Desconocido"
 
-                #Reemplazar idUsuario por nombre
                 riego_encontrado["idUsuario"] = nombre_usuario
 
-                #Asegurarse que tenga idRiego
                 if "idRiego" not in riego_encontrado:
                     riego_encontrado["idRiego"] = id_riego
 
@@ -224,10 +206,10 @@ class RiegosDAO:
                 salida.mensaje = f"Riego con ID '{id_riego}' encontrado en el cultivo."
             else:
                 salida.estatus = "ERROR"
-                salida.mensaje = f"No se encontró el riego con ID '{id_riego}' en el cultivo o está marcado como eliminado."
+                salida.mensaje = f"No se encontró el riego con ID '{id_riego}' en el cultivo."
 
         except Exception as ex:
-            print(f"Error en CultivoDAO.consultarRiegoDeCultivoPorId: {ex}")
+            print(f"Error en RiegosDAO.consultarRiegoDeCultivoPorId: {ex}")
             salida.estatus = "ERROR"
             salida.mensaje = "Error interno al consultar el riego. Consulte al administrador."
 
@@ -235,85 +217,69 @@ class RiegosDAO:
 
 
     def consultarRiegosDeCultivo(self, id_cultivo: str) -> RiegosSalida:
-        salida = RiegosSalida(riegos=[])
+        salida = RiegosSalida(estatus="OK", mensaje="Consulta correcta", riegos=[])
         try:
-            #Validar ID del cultivo
             try:
                 obj_id_cultivo = ObjectId(id_cultivo)
             except Exception:
+                salida.estatus = "ERROR"
+                salida.mensaje = "ID de cultivo inválido"
                 return salida
 
-            #Buscar el cultivo
             cultivo_doc = self.db.cultivos.find_one(
                 {"_id": obj_id_cultivo},
                 {"_id": 0, "riegos": 1}
             )
 
             if cultivo_doc and "riegos" in cultivo_doc:
-                riegos_filtrados = []
+                riegos_lista = []
                 for r in cultivo_doc["riegos"]:
-                    if not r.get("eliminado", False):
-                        #Convertir ObjectId a string si es necesario
-                        id_usuario = str(r["idUsuario"]) if isinstance(r["idUsuario"], ObjectId) else r["idUsuario"]
-                        
-                        # Consultar nombre del usuario
-                        usuario_doc = self.db.usuarios.find_one({"_id": ObjectId(id_usuario)}, {"nombre": 1})
-                        nombre_usuario = usuario_doc["nombre"] if usuario_doc else "Desconocido"
-                        
-                        # Armar nuevo riego con nombre en vez de id
-                        r_copy = r.copy()
-                        r_copy["idUsuario"] = nombre_usuario
-                        
-                        # Añadir idRiego si no tiene
-                        if "idRiego" not in r_copy:
-                            r_copy["idRiego"] = "Sin ID"
+                    id_usuario = str(r["idUsuario"]) if isinstance(r["idUsuario"], ObjectId) else r["idUsuario"]
+                    usuario_doc = self.db.usuarios.find_one({"_id": ObjectId(id_usuario)}, {"nombre": 1})
+                    nombre_usuario = usuario_doc["nombre"] if usuario_doc else "Desconocido"
 
-                        riegos_filtrados.append(RiegoConsulta(**r_copy))
+                    r_copy = r.copy()
+                    r_copy["idUsuario"] = nombre_usuario
 
-                salida.riegos = riegos_filtrados
+                    if "idRiego" not in r_copy:
+                        r_copy["idRiego"] = "Desconocido"
 
+                    riegos_lista.append(RiegoConsulta(**r_copy))
+                salida.riegos = riegos_lista
+            else:
+                salida.mensaje = "No se encontraron riegos para este cultivo"
         except Exception as ex:
-            print(f"Error en CultivoDAO.consultarRiegosDeCultivo: {ex}")
+            print(f"Error en RiegosDAO.consultarRiegosDeCultivo: {ex}")
+            salida.estatus = "ERROR"
+            salida.mensaje = "Error interno del servidor"
 
         return salida
 
 
-
-
-    def eliminarRiegoLogico(self, id_cultivo: str, id_riego: str) -> Salida:
+    def eliminarRiegoDeCultivo(self, id_cultivo: str, id_riego: str) -> Salida:
         salida = Salida(estatus="", mensaje="")
         try:
             try:
                 obj_id_cultivo = ObjectId(id_cultivo)
             except Exception:
                 salida.estatus = "ERROR"
-                salida.mensaje = "ID de cultivo no válido."
+                salida.mensaje = "ID del cultivo no válido."
                 return salida
 
-            # Solo actualizar si el riego NO está ya eliminado
             result = self.db.cultivos.update_one(
-                {
-                    "_id": obj_id_cultivo,
-                    "riegos.idRiego": id_riego,
-                    "riegos.eliminado": False 
-                },
-                {"$set": {"riegos.$.eliminado": True}}
+                {"_id": obj_id_cultivo},
+                {"$pull": {"riegos": {"idRiego": id_riego}}}
             )
 
-            if result.matched_count == 0:
-                salida.estatus = "ERROR"
-                salida.mensaje = f"No se encontró el riego con ID '{id_riego}' activo en el cultivo '{id_cultivo}'."
-                return salida
-
-            if result.modified_count > 0:
+            if result.modified_count == 1:
                 salida.estatus = "OK"
-                salida.mensaje = f"Riego con ID '{id_riego}' eliminado lógicamente."
+                salida.mensaje = f"Riego con ID '{id_riego}' eliminado físicamente del cultivo."
             else:
-                salida.estatus = "OK"
-                salida.mensaje = "El riego ya estaba marcado como eliminado."
+                salida.estatus = "ERROR"
+                salida.mensaje = f"No se encontró el riego con ID '{id_riego}' para eliminar."
 
         except Exception as ex:
-            print(f"Error en eliminarRiegoLogico: {ex}")
+            print(f"Error en RiegosDAO.eliminarRiegoDeCultivo: {ex}")
             salida.estatus = "ERROR"
             salida.mensaje = "Error interno al eliminar el riego."
         return salida

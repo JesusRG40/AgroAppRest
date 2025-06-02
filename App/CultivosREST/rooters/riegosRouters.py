@@ -11,7 +11,6 @@ from models.riegosModel import (
 
 router = APIRouter(prefix="/riegos", tags=["Riegos"])
 
-# Ruta para registrar riego
 @router.post("/registrar/{id_cultivo}", response_model=Salida)
 def registrar_riego(
     request: Request,
@@ -24,7 +23,7 @@ def registrar_riego(
         raise HTTPException(status_code=400, detail=salida.mensaje)
     return salida
 
-# Ruta para actualizar riego
+
 @router.put("/actualizar/{id_cultivo}/{id_riego}", response_model=Salida)
 def actualizar_riego(
     request: Request,
@@ -38,20 +37,21 @@ def actualizar_riego(
         raise HTTPException(status_code=400, detail=salida.mensaje)
     return salida
 
-# Ruta para eliminar lógicamente un riego
-@router.put("/eliminar-logico/{id_cultivo}/{id_riego}", response_model=Salida)
-def eliminar_riego_logico(
+
+# Cambié el endpoint a DELETE y llamo a eliminación física
+@router.delete("/eliminar/{id_cultivo}/{id_riego}", response_model=Salida)
+def eliminar_riego(
     request: Request,
     id_cultivo: str,
     id_riego: str
 ):
     dao = RiegosDAO(request.app.db)
-    salida = dao.eliminarRiegoLogico(id_cultivo, id_riego)
+    salida = dao.eliminarRiegoDeCultivo(id_cultivo, id_riego)
     if salida.estatus == "ERROR":
         raise HTTPException(status_code=400, detail=salida.mensaje)
     return salida
 
-# Consultar riego específico
+
 @router.get("/detalle/{id_cultivo}/{id_riego}", response_model=RiegoConsultaIndividual)
 def obtener_riego_por_id(
     request: Request,
@@ -64,7 +64,7 @@ def obtener_riego_por_id(
         raise HTTPException(status_code=404, detail=salida.mensaje)
     return salida
 
-# Consultar riegos activos de un cultivo
+
 @router.get("/listar/{id_cultivo}", response_model=RiegosSalida)
 def obtener_riegos_activos(
     request: Request,
