@@ -239,8 +239,8 @@ class UsuarioDAO:
             salida.mensaje = "Error al consultar el usuario, consulte al administrador."
             return salida
 
-    def iniciar_sesion(self, email: str, password: str) -> Salida:
-        salida = Salida(estatus="", mensaje="")
+    def iniciar_sesion(self, email: str, password: str) -> UsuarioDetalleSalida:
+        salida = UsuarioDetalleSalida(estatus="", mensaje="", usuario=None)
 
         try:
             # 1. Verificar que el email exista
@@ -265,6 +265,7 @@ class UsuarioDAO:
             # 4. Credenciales correctas
             salida.estatus = "OK"
             salida.mensaje = f"Usuario {str(usuario['_id'])} autenticado con éxito."
+            salida.usuario = usuario
             return salida
 
         except Exception as ex:
