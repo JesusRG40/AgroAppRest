@@ -8,18 +8,14 @@ from routes.usuariosRoutes import validarUsuario
 router = APIRouter(prefix="/insumos", tags=["Insumos"])
 
 @router.post("/", response_model=Salida, summary="Registrar un nuevo insumo")
-async def registrar_insumo(
-    insumo: InsumoInsert,
-    request: Request,
-    respuesta: UsuarioDetalleSalida = Depends(validarUsuario),
-) -> Salida:
+async def registrar_insumo(insumo: InsumoInsert, request: Request, respuesta: UsuarioDetalleSalida = Depends(validarUsuario)) -> Salida:
     """
     Registra un nuevo insumo en el sistema.
     - Verifica que los campos obligatorios estén presentes y sean válidos.
     - Verifica que 'cantDisponible' sea un valor numérico >= 0.
     - Verifica que 'tipoInsumo' pertenezca a la lista de tipos válidos.
     - Comprueba la unicidad de 'nombreInsumo'.
-    - Solo usuarios con rol 'Administrador' o 'Supervisor' pueden registrar insumos.
+    - Solo usuarios con rol 'Administrador' pueden registrar insumos.
     """
     usuar = respuesta.usuario
     if respuesta.estatus == "OK" and usuar["rol"] == "Administrador":
@@ -80,7 +76,7 @@ async def obtener_insumo(id_insumo: str, request: Request, respuesta: UsuarioDet
 async def obtener_lista_insumos(request: Request, respuesta: UsuarioDetalleSalida = Depends(validarUsuario)) -> InsumosSalida:
     """
     Consulta general de todos los insumos activos.
-    - Solo usuarios con rol 'Administrador' o 'Supervisor' pueden ver el listado.
+    - Usuarios con cualquier rol autenticado pueden consultar insumos.
     """
     if respuesta.estatus == "OK":
         insumo_dao = InsumoDAO(request.app.db)

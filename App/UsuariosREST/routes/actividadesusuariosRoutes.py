@@ -46,7 +46,7 @@ async def eliminar_actividad(id_actividad: str, request: Request, respuesta: Usu
     """
     Elimina lógicamente una actividad de usuario (cambiando estatus a 'Cancelada').
     - Verifica que el id_actividad exista en la base de datos.
-    - Solo usuarios con rol 'Administrador' o 'Supervisor' pueden eliminar actividades.
+    - Solo usuarios con rol 'Administrador' pueden eliminar actividades.
     """
     usuar = respuesta.usuario
     if respuesta.estatus == "OK" and usuar["rol"] == "Administrador":
