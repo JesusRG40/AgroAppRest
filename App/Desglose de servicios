@@ -1,0 +1,14 @@
+CultivosREST
+-Cultivos
+-Riegos
+-Ubicacion
+-Seguimiento
+-Alertas
+
+Historial_SueloREST
+-Historial de suelo
+
+UsuariosREST
+-Usuarios
+-ActividadesUsuario
+-Insumos
